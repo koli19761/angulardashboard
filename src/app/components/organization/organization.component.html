@@ -1,0 +1,155 @@
+
+<div class="modal-body">
+      <nb-card>
+        <nb-card-header>Organization Onboarding</nb-card-header>
+        <nb-card-body>
+            <form (ngSubmit)="onsubmit()" #form="ngForm">
+              <div class="form-group row">
+                <label for="inputEmail1" class="col-sm-3 col-form-label">Organization Name</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="orgName" placeholder="Organization Name" 
+                  name="orgName" [(ngModel)]="org.orgName" #orgName="ngModel" 
+                  [class.form-control-danger]="orgName.invalid && orgName.touched"
+                  [required]="getConfigValue('forms.validation.orgName.required')">
+                  <small class="form-text error" *ngIf="orgName.invalid && orgName.touched && orgName.errors?.required">
+                   Please Enter Organization Name!
+                  </small>
+                </div>
+                
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail1" class="col-sm-3 col-form-label">Description</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="description" placeholder="Organization Description" 
+                    name="desc" [(ngModel)]="org.desc" #desc="ngModel" 
+                    [class.form-control-danger]="desc.invalid && desc.touched"
+                    [required]="getConfigValue('forms.validation.desc.required')">
+                    <small class="form-text error" *ngIf="desc.invalid && desc.touched && desc.errors?.required">
+                      Please Enter Organization Description!
+                    </small>
+                  </div>
+                </div>
+              <div class="form-group row">
+                <label for="inputEmail1" class="col-sm-3 col-form-label">Address1</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="address1" placeholder="House/Flat No./Street"
+                  name="address1" [(ngModel)]="org.address1" #address1="ngModel" 
+                  [class.form-control-danger]="address1.invalid && address1.touched"
+                  [required]="getConfigValue('forms.validation.address1.required')">
+                  <small class="form-text error" *ngIf="address1.invalid && address1.touched && address1.errors?.required">
+                    Please Enter Organization Address !
+                  </small>
+                </div>
+              </div>
+              <div class="form-group row">
+                  <label for="inputEmail1" class="col-sm-3 col-form-label">Address2</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="address2" placeholder="Locality/Area/Road"
+                    name="address2" [(ngModel)]="org.address2" #address2="ngModel" 
+                  [class.form-control-danger]="address2.invalid && address2.touched"
+                  [required]="getConfigValue('forms.validation.address2.required')">
+                  <small class="form-text error" *ngIf="address2.invalid && address2.touched && address2.errors?.required">
+                    Address is not Complete
+                  </small>
+                  </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">City</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control"  placeholder="City" 
+                  name="city" [(ngModel)]="org.city" #city="ngModel" 
+                  [class.form-control-danger]="city.invalid && city.touched"
+                  [required]="getConfigValue('forms.validation.city.required')">
+                  <small class="form-text error" *ngIf="city.invalid && city.touched && city.errors?.required">
+                    Please Enter City Name
+                  </small>
+                </div>
+                <label class="col-sm-2 col-form-label">State</label>
+                <div class="col-sm-3">
+                    <input type="email" class="form-control"  placeholder="State"
+                    name="state" [(ngModel)]="org.state" #state="ngModel" 
+                  [class.form-control-danger]="state.invalid && state.touched"
+                  [required]="getConfigValue('forms.validation.state.required')">
+                  <small class="form-text error" *ngIf="state.invalid && state.touched && state.errors?.required">
+                    Please Enter State Name
+                  </small>
+                </div>
+              </div>
+              <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Country</label>
+                  <div class="col-sm-3">
+                    <input type="email" class="form-control"  placeholder="Country Name"
+                    name="country" [(ngModel)]="org.country" #country="ngModel" 
+                  [class.form-control-danger]="country.invalid && country.touched"
+                  [required]="getConfigValue('forms.validation.country.required')">
+                  <small class="form-text error" *ngIf="country.invalid && country.touched && country.errors?.required">
+                    Please Enter Country Name
+                  </small>
+                  </div>
+                  <label class="col-sm-2 col-form-label">Zip Code</label>
+                  <div class="col-sm-3">
+                      <input type="email" class="form-control"  placeholder="ZIP"
+                      name="zip" [(ngModel)]="org.zip" #zip="ngModel" 
+                  [class.form-control-danger]="zip.invalid && zip.touched"
+                  [required]="getConfigValue('forms.validation.zip.required')"
+                  required
+                  pattern="[0-9]*"
+                  minlength="6"
+                  maxlength="6">
+                  <small class="form-text error" *ngIf="zip.invalid && zip.touched && zip.errors?.required">
+                    Please Enter ZIP Code
+                  </small>
+                  <div [hidden]="zip.valid || zip.pristine">
+                    <div class="form-text error" [hidden]="!zip.hasError('minlength')">Zip Code should be of 6 digits</div>
+                    <div class="form-text error" [hidden]="!zip.hasError('pattern')">Incorrect Input! Enter only Numbers</div>
+                </div>
+                  </div>
+                </div>
+              <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Telephone</label>
+                  <div class="col-sm-4">
+                    <input type="email" class="form-control"  placeholder="Primary"
+                    name="phprimary" [(ngModel)]="org.phprimary" #phprimary="ngModel" 
+                  [class.form-control-danger]="phprimary.invalid && phprimary.touched"
+                  [required]="getConfigValue('forms.validation.phprimary.required')" 
+                  required
+                  pattern="[0-9]*"
+                  minlength="10"
+                  maxlength="10"  >
+                  <small class="form-text error" *ngIf="phprimary.invalid && phprimary.touched && phprimary.errors?.required">
+                    Please Enter Primary Number 
+                  </small>
+                  <div [hidden]="phprimary.valid || phprimary.pristine">
+                      <div class="form-text error" [hidden]="!phprimary.hasError('minlength')">Phone Number should be of 10 digits</div>
+                      <div class="form-text error" [hidden]="!phprimary.hasError('pattern')">Incorrect Input! Enter only Numbers</div>
+                  </div>
+                  
+                  </div>
+                  <div class="col-sm-4">
+                      <input type="email" class="form-control"  placeholder="Secondary"
+                      name="phsecondary" [(ngModel)]="org.phsecondary" #phsecondary="ngModel" 
+                  [class.form-control-danger]="phsecondary.invalid && phsecondary.touched"
+                  [required]="getConfigValue('forms.validation.phsecondary.required')"
+                  required
+                  pattern="[0-9]*"
+                  minlength="10"
+                  maxlength="10"  >
+                  <small class="form-text error" *ngIf="phsecondary.invalid && phsecondary.touched && phsecondary.errors?.required">
+                    Please Enter Secondary Number 
+                  </small>
+                  <div [hidden]="phsecondary.valid || phsecondary.pristine">
+                      <div class="form-text error" [hidden]="!phsecondary.hasError('minlength')">Phone Number should be of 10 digits</div>
+                      <div class="form-text error" [hidden]="!phsecondary.hasError('pattern')">Incorrect Input! Enter only Numbers</div>
+                  </div>
+                    </div>
+              </div>
+              <button class="btn btn-primary" type="Submit" (click)="showLargeModal3()"
+               [disabled]="submitted || !form.valid " [class.btn-pulse]="submitted">
+                  Next
+                </button> 
+          </form>
+        </nb-card-body>
+      </nb-card>
+</div>
+
+

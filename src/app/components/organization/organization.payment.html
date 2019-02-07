@@ -1,0 +1,64 @@
+
+                <nb-card>
+                    <nb-card-header>Payment Options</nb-card-header>
+                    <nb-card-body>
+                        <form (ngSubmit)="onsubmit()" #form="ngForm">
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-form-label" align="center">Credit/Debit Card Details</label>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Card Number</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="cardNum" placeholder="16 Digit Card Number" name="cardNum" [(ngModel)]="org.cardNum"
+                                        #cardNum="ngModel" [class.form-control-danger]="cardNum.invalid && cardNum.touched" [required]="getConfigValue('forms.validation.cardNum.required')"
+                                        required pattern="[0-9]*" minlength="16" maxlength="16">
+                                    <small class="form-text error" *ngIf="cardNum.invalid && cardNum.touched && cardNum.errors?.required">
+                                        Please Enter Card Number
+                                    </small>
+                                    <div [hidden]="cardNum.valid || cardNum.pristine">
+                                        <div class="form-text error" [hidden]="!cardNum.hasError('minlength')">Card Number should be of 16 digits</div>
+                                        <div class="form-text error" [hidden]="!cardNum.hasError('pattern')">Incorrect Input! Enter only Numbers</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="cardName" placeholder="Full name as specified in Bank Account" name="cardName"
+                                        [(ngModel)]="org.cardName" #cardName="ngModel" [class.form-control-danger]="cardName.invalid && cardName.touched"
+                                        [required]="getConfigValue('forms.validation.cardName.required')" 
+                                        >
+                                    <small class="form-text error" *ngIf="cardName.invalid && cardName.touched && cardName.errors?.required">
+                                        Please Enter The Name
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Date of Expiry</label>
+                                <div class="col-sm-5">
+                                    <input type="date" class="form-control" id="carddate" name="carddate"
+                                    [(ngModel)]="org.carddate" #carddate="ngModel" [class.form-control-danger]="carddate.invalid && carddate.touched"
+                                    [required]="getConfigValue('forms.validation.carddate.required')">
+                                <small class="form-text error" *ngIf="carddate.invalid && carddate.touched && carddate.errors?.required">
+                                    Please Enter Expiry Date !
+                                </small> 
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">CVV (Optional)</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="cardNum" placeholder="3 Digit">
+                                    <small class="form-text">3 Digit CVV present on the back of the card after your signature
+                                    </small>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="Submit" (click)="showLargeModal5()"
+                            [disabled]="submitted || !form.valid || !form.touched" [class.btn-pulse]="submitted">
+                                Next
+                            </button> &nbsp; &nbsp;
+
+                            
+                        </form>
+                    </nb-card-body>
+                </nb-card>
+            

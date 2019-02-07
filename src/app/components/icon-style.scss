@@ -1,0 +1,129 @@
+  
+  .testimg:before{
+    content: url(../../assets/nb-menu.svg);
+    font-family:"FontAwesome";
+    
+    height: 40px;  /*height of icon */
+    width: 40px;  /*width of icon */
+    position: absolute;
+      /*where to replace the icon */
+    bottom:20px;
+      /*background */
+}
+.nb-person::before{
+    content: '';
+    --po: 15px;
+    font-family:"FontAwesome";
+    margin-top: var(--po);
+    margin-left: 10px;
+    height: 25px;  /*height of icon */
+    width: 25px;  /*width of icon */
+    position: absolute;
+      /*where to replace the icon */
+      /*background */
+    background: url(../../assets/nb-person.svg) no-repeat 0px 0px;
+
+  }
+
+  .searchimg:before{
+    content: '';
+    font-family:"FontAwesome";
+    
+    height: 40px;  /*height of icon */
+    width: 40px;  /*width of icon */
+    position: absolute;
+      /*where to replace the icon */
+    bottom:20px;
+      /*background */
+    background: #FFFFF1 url(../../assets/nb-search.svg) no-repeat 0px 0px;
+}
+
+.nb-home{
+    content: '';
+    font-family:"FontAwesome";
+    
+    height: 40px;  /*height of icon */
+    width: 40px;  /*width of icon */
+    position: absolute;
+      /*where to replace the icon */
+    bottom:20px;
+      /*background */
+    background: #FFFFF1 url(../../assets/nb-home.svg) no-repeat 0px 0px;
+}
+
+.nb-plus::before{
+  content: '';
+  font-family:"FontAwesome";
+  height: 30px;  /*height of icon */
+  width: 30px;  /*width of icon */
+  position: absolute;
+  box-sizing: 'border-box';
+    /*where to replace the icon */
+    /*background */
+  background:url(../../assets/nb-plus.svg) no-repeat 0px 0px;
+}
+.nb-plus{
+  height: 40px;  /*height of icon */
+  width: 90px; 
+}
+
+.nb-edit::before{
+  content: '';
+  margin-top: 5px;
+  margin-left: 10px;
+  height: 30px;  /*height of icon */
+  width: 30px;
+    /*where to replace the icon */
+    /*background */
+  box-sizing: 'border-box';
+  position: absolute;
+  background: url(../../assets/nb-edit.svg) no-repeat 0px 0px;
+
+}
+.nb-trash::before{
+  content: '';
+  margin-top: 5px;
+  margin-left: 60px;
+  height: 30px;  /*height of icon */
+  width: 30px; /*width of icon */
+  position: absolute;
+  box-sizing: 'border-box';
+    /*where to replace the icon */
+    /*background */
+  background: url(../../assets/nb-trash.svg) no-repeat 0px 0px;
+
+}
+.nb-checkmark::before{
+  content: '';
+  margin-top: 5px;
+  margin-left: 10px;
+  height: 30px;  /*height of icon */
+  width: 30px;
+    /*where to replace the icon */
+    /*background */
+  box-sizing: 'border-box';
+  position: absolute;
+  background: url(../../assets/nb-checkmark.svg) no-repeat 0px 0px;
+
+}
+.nb-close::before{
+  content: '';
+  margin-top: 5px;
+  margin-left: 60px;
+  height: 30px;  /*height of icon */
+  width: 30px; /*width of icon */
+  position: absolute;
+  box-sizing: 'border-box';
+    /*where to replace the icon */
+    /*background */
+  background: url(../../assets/nb-close.svg) no-repeat 0px 0px;
+
+}
+.nb-gear{
+  content:url(../../assets/nb-close.svg);
+  height: 30px;  /*height of icon */
+  width: 30px;
+}
+
+
+
